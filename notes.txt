@@ -1,0 +1,21 @@
+
+real
+blue: 1hr
+teal: 24m
+orange: 23m
+
+margin 8
+blue_count 1400
+teal_count 368
+orange_count 224
+
+margin 10
+blue_count 1780
+teal_count 479
+orange_count 301
+
+
+margin 12
+blue_count 1850
+teal_count 553
+orange_count 618

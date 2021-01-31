@@ -70,10 +70,8 @@ black
 def compare_range(pixel, color):
     pixel = list(pixel)
     color= list(color)
-
     flag = False
-
-    margin = 10
+    margin = 12
 
     if(abs(pixel[0] - color[0]) < margin):
         if(abs(pixel[1] - color[1]) < margin):
