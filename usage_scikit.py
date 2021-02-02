@@ -6,6 +6,10 @@ from numpy import asarray, array_equal
 screenshot = io.imread('IMG-1800.PNG')
 
 graph = screenshot[760:1010, 30: 875]
+day = screenshot[370:410, 30:350]
+time = screenshot[415:480, 30:240]
+
+summary = screenshot[1015: 110, 20:620]
 
 print(type(graph[100][100]))
 
@@ -47,3 +51,15 @@ print('orange_count', orange_count)
 print('grey_count', grey_count)
 
 io.imsave('graph.png', graph)
+io.imsave('day.png', day)
+io.imsave('time.png', time)
+
+summary = screenshot[1015: 1100, 20:620]
+io.imsave('summary.png', summary)
+
+'''
+from skimage import io
+import pytesseract
+time = io.imread('summary.png')
+pytesseract.image_to_string(time)
+'''
