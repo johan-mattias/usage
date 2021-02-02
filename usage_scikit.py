@@ -12,10 +12,12 @@ print(type(graph[100][100]))
 blue = asarray([10, 132, 255])
 teal = asarray([100, 210, 255])
 orange = asarray([255, 159, 10])
+grey = asarray([58, 58, 60])
 
 blue_count = 0
 teal_count = 0
 orange_count = 0
+grey_count = 0
 
 for x in range(len(graph)):
     for y in range(len(graph[x])):
@@ -31,6 +33,10 @@ for x in range(len(graph)):
             if orange_count < 5:
                 print(x,y)
             orange_count += 1
+        if array_equal(graph[x][y], grey):
+            if grey_count < 5:
+                print(x,y)
+            grey_count += 1
 
 print(type(graph))
 print(graph.shape)
@@ -38,5 +44,6 @@ print(graph.shape)
 print('blue_count', blue_count)
 print('teal_count', teal_count)
 print('orange_count', orange_count)
+print('grey_count', grey_count)
 
 io.imsave('graph.png', graph)
