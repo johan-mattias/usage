@@ -1,6 +1,10 @@
 from skimage import io
 from numpy import asarray, array_equal
-graph = io.imread('graph.png')
+#graph = io.imread('graph.png')
+
+screenshot = io.imread('IMG-1783.PNG')
+
+graph = screenshot[760:1010, 30: 875]
 
 blue = asarray([10, 132, 255])
 teal = asarray([100, 210, 255])
@@ -8,7 +12,6 @@ orange = asarray([255, 159, 10])
 grey = asarray([58, 58, 60])
 
 color_list = [blue, teal, orange, grey]
-
 
 def find_width_by_color(color, graph):
     for x in range(len(graph[0])):
@@ -103,59 +106,60 @@ def run():
 
     print('blue_width', blue_width, 'teal_width' ,teal_width,
           'orange_width', orange_width, 'grey_width', grey_width)
-    assert(blue_width == teal_width == orange_width == grey_width)
+    #assert(blue_width == teal_width == orange_width == grey_width)
 
     width = blue_width
 
     gaps, tops, starts = find_base(graph, color_list)
-    print('gaps', len(gaps), gaps)
-    print('tops', len(tops), tops)
-    print('starts', len(starts), starts)
+    #print('gaps', len(gaps), gaps)
+    #print('tops', len(tops), tops)
+    #print('starts', len(starts), starts)
     
-    print(list(zip(starts, tops)))
+    #print(list(zip(starts, tops)))
 
     areas = []
 
     for top in tops:
         areas.append(top*15)
 
-    print(areas)
+    #print(areas)
 
     sum = 0
 
     for area in areas:
         sum += area
-    print('area:', sum)
+    #print('area:', sum)
     #417 minutes
-    print('pixels per minute', round(sum/417))
+    #print('pixels per minute', round(sum/417))
 
     pix_per_min = round(sum/417)
 
     times = []
     for area in areas:
         times.append(round(area/pix_per_min))
-    print(times)
+    #print(times)
 
     hours = []
     x = 0
     index = 0
-    print('start')
+    #print('start')
     for gap in gaps:
-        print(gap)
+        #print(gap)
         #TODO calculate max gap
         if gap > 10:
             length = gap
             while length > 0:
-                print('len',length)
+                #print('len',length)
                 hours.append(0)
                 #TODO calculate constant
-                length -= 30
+                length -= 23
         hours.append(times[index])
         index += 1
         x = x + gap
-        #print(x, gap)
-        print('hours',hours)
+        ##print(x, gap)
+    print(hours)
     print(len(hours))
+    assert(len(hours)==24)
 
 
         
