@@ -108,9 +108,9 @@ def run():
     width = blue_width
 
     gaps, tops, starts = find_base(graph, color_list)
-    print(len(gaps), gaps)
-    print(len(tops), tops)
-    print(len(starts), starts)
+    print('gaps', len(gaps), gaps)
+    print('tops', len(tops), tops)
+    print('starts', len(starts), starts)
     
     print(list(zip(starts, tops)))
 
@@ -135,6 +135,31 @@ def run():
     for area in areas:
         times.append(round(area/pix_per_min))
     print(times)
+
+    hours = []
+    x = 0
+    index = 0
+    print('start')
+    for gap in gaps:
+        print(gap)
+        #TODO calculate max gap
+        if gap > 10:
+            length = gap
+            while length > 0:
+                print('len',length)
+                hours.append(0)
+                #TODO calculate constant
+                length -= 30
+        hours.append(times[index])
+        index += 1
+        x = x + gap
+        #print(x, gap)
+        print('hours',hours)
+    print(len(hours))
+
+
+        
+
 
 
 
