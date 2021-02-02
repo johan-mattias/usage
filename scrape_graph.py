@@ -48,7 +48,8 @@ def find_base(graph, color_list):
                 gaps.append(x)
                 #go right all the way to end
 
-                while x < 520:
+                #TODO: detect end of graph
+                while x < 475:
                     print('x', x)
                     x1 = x
                     flag = True
@@ -83,9 +84,10 @@ def find_base(graph, color_list):
                             flag = False
                     x = x2
                     print(gaps)
+                    print(len(gaps))
                     print(tops)
-
-    return(gaps, tops)   
+                    print(len(tops))
+                return(gaps, tops)   
 
 
 
